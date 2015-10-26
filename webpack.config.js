@@ -1,7 +1,7 @@
-modulde.exports = {
-    entry: 'js/lib/*.js',
+module.exports = {
+    entry: './js/app.js',
     output: {
-        path: 'js/',
-        filename: 'bundle.js'
+        path: './bundles/',
+        filename: '_app.js'
     }
 };

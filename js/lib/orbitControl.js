@@ -1,4 +1,6 @@
-(function(THREE) {
+module.exports = function(THREE) {
+    console.log('OrbitControls', THREE);
+
     var MOUSE = THREE.MOUSE
     if (!MOUSE)
         MOUSE = { LEFT: 0, MIDDLE: 1, RIGHT: 2 };
@@ -710,4 +712,4 @@
     OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
     OrbitControls.prototype.constructor = OrbitControls;
     return OrbitControls;
-})(window.THREE)
+}
