@@ -1,0 +1,27 @@
+{
+  "name": "threejs_demo",
+  "version": "0.0.1",
+  "description": "demo",
+  "main": "js/app.js",
+  "scripts": {
+    "server": "webpack-dev-server ----content-base ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/truerenton/threejs_demo.git"
+  },
+  "author": "truerenton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/truerenton/threejs_demo/issues"
+  },
+  "homepage": "https://github.com/truerenton/threejs_demo",
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "pubsub-js": "^1.5.3",
+    "three": "^0.73.0",
+    "three-orbit-controls": "^71.1.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1"
+  }
+}
