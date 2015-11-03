@@ -1,5 +1,4 @@
 var $ = require('jquery');
-var THREE = require('three');
 var PubSub = require('pubsub-js');
 
 /**
@@ -10,7 +9,7 @@ var Events = function(domElem, camera, scene) {
     this.camera = camera;
     this.scene = scene;
 
-    $(this.domElem).on({
+    this.domElem.on({
         click: this._onClick.bind(this),
         mousedown: this._onMouseDown.bind(this),
         mousemove: this._onMouseMove.bind(this)

@@ -1,0 +1,14 @@
+@import url(../../fonts/play/play.css);
+
+html,
+body
+{
+    font-family: 'Play', sans-serif;
+
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+
+    color: #bbb;
+}
