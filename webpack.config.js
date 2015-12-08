@@ -1,11 +1,14 @@
 var webpack = require('webpack');
 
 module.exports = {
-    context: __dirname + '/static',
-    entry: './blocks/app/app.js',
+    context: __dirname + '/public',
+    entry: {
+        view: './blocks/view/view.js',
+        panel: './blocks/panel/panel.js'
+    },
     output: {
-        path: './',
-        filename: '_app.js'
+        path: './public/bundles',
+        filename: '_[name].js'
     },
     module: {
         loaders: [
@@ -17,7 +20,10 @@ module.exports = {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
                 loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
             }
-        ]
+        ],
+        resolve: {
+            extensions: [',', '.js', '.css', '.styl']
+        },
     },
     plugins: [
         // remove duplicated plugins

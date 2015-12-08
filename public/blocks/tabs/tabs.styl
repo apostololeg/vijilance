@@ -1,0 +1,17 @@
+@import './_layout/tabs_layout_simple.styl'
+@import './_layout/tabs_layout_shelf.styl'
+
+.tabs
+    &__tab
+        padding 10px
+        line-height 2em
+
+    &__tab_active_yes
+        background-color rgba(255,255,255,0.1)
+
+    &__pane
+        position relative
+
+    &__pane:not(&__pane_active_yes)
+        display none
+

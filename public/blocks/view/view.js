@@ -5,6 +5,8 @@ var THREE = require('three');
 var clock = new THREE.Clock();
 var orbitControls = require('three-orbit-controls')(THREE);
 
+require('../common/common.styl');
+
 require('three-loaders-collada')(THREE);
 require('../../lib/Animation.js')(THREE);
 require('../../lib/AnimationHandler.js')(THREE);
@@ -20,6 +22,7 @@ var View = function(domElem) {
     this._setDefaultCamera();
     this._setOrbitControls();
     // this._setDefaultLight();
+    this._connectSocket();
 
     this.render();
 };
@@ -28,7 +31,7 @@ $.extend(View.prototype, {
 
     render: function() {
         window.requestAnimationFrame(this.render.bind(this));
-        this.controls.update();
+        // this.controls.update();
         THREE.AnimationHandler.update(clock.getDelta());
         this.renderer.render(this.scene, this.camera);
     },
@@ -93,6 +96,22 @@ $.extend(View.prototype, {
         this.trigger = EventEmmiter.publish.bind(this);
     },
 
+    _connectSocket: function() {
+        this.socket = require('socket.io-client')('http://localhost:3000');
+
+        this.socket.on({
+            connect: function() {
+                console.log('connected');
+            },
+            event: function(data) {
+                console.log('event', data);
+            },
+            disconnect: function() {
+                console.log('disconnected');
+            }
+        });
+    },
+
     _onClick: function(e, data) {
         var intersect = this._getIntersect(data.clientX, data.clientY);
         if (intersect) {
@@ -117,3 +136,8 @@ $.extend(View.prototype, {
 });
 
 module.exports = View;
+
+// ----------------------------
+var view = new View($('#view'));
+// load default scene
+// view.load('static/models/monster.dae');

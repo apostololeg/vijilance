@@ -1,0 +1,36 @@
+@import '../../fonts/font-awesome/font-awesome.css'
+
+headerHeight = 50px
+tabsHeight = 50px
+
+.card
+    display flex
+    flex-direction column
+    height 100%
+
+    &__header
+        display flex
+        height headerHeight
+        line-height headerHeight
+
+    &__up,
+    &__title
+        display block
+
+    &__up
+        font-family 'FontAwesome', sans-serif
+
+        width headerHeight
+        height headerHeight
+        margin-right 10px
+
+        text-align center
+
+    &__title
+        overflow hidden
+
+        white-space nowrap
+        text-overflow ellipsis
+
+    &__content
+        flex 1

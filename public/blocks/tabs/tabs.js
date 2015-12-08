@@ -15,8 +15,13 @@ $.extend(Tabs.prototype, {
         tabs.elem('tab').byMod('active').delMod('active');
         tabs.elem('pane').byMod('active').delMod('active');
         // set active
-        tabs.elem('tab').byMod('id', id).setMod('active');
-        tabs.elem('pane').byMod('id', id).setMod('active');
+        tabs.elem('tab').byMod('id', id).eq(0).setMod('active', 'yes');
+        tabs.elem('pane').byMod('id', id).eq(0).setMod('active', 'yes');
+
+        tabs.trigger('switch', {
+            id: id,
+            block: tabs
+        });
     }
 });
 
